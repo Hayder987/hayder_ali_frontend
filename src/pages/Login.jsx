@@ -3,6 +3,7 @@ import loginBg from "../assets/images/loginbg1.jpeg";
 import { Link } from "react-router";
 
 const Login = () => {
+  
   return (
     <div>
       <div className="flex flex-col lg:max-w-[1000px] mx-auto py-10 md:py-16 lg:flex-row gap-10 mb-20 md:mb-24 ">

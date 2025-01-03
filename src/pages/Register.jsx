@@ -3,6 +3,15 @@ import { Link } from "react-router";
 import loginBg from "../assets/images/registerBg-1.jpg";
 
 const Register = () => {
+  const registerHandler = e =>{
+    e.preventDefault()
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    
+  }
     return (
         <div>
       <div className="flex flex-col lg:max-w-[1000px] mx-auto py-10 md:py-16 lg:flex-row gap-10 mb-20 md:mb-24 ">
@@ -19,7 +28,7 @@ const Register = () => {
           <h1 className="text-center uppercase text-xl md:text-3xl font-semibold mb-6 text-gray-400">
             Register
           </h1>
-          <form className="flex flex-col gap-4 max-w-[600px] mx-auto">
+          <form onSubmit={registerHandler} className="flex flex-col gap-4 max-w-[600px] mx-auto">
             {/* name */}
             <div className="form-control w-full">
               <label className="mb-2">
