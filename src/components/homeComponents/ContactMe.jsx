@@ -1,8 +1,50 @@
-
+import axios from "axios";
 import contactImg from "../../assets/logo/contact2.jpg";
+import useAuth from "../../hooks/useAuth";
 import FindMe from "../shared/FindMe";
+import Swal from "sweetalert2";
 
 const ContactMe = () => {
+  const { user } = useAuth();
+
+  const contactFormHandler = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const subject = form.subject.value;
+    const message = form.message.value;
+    const date = new Date();
+
+    const contactMessage = {
+      name,
+      phone,
+      email,
+      subject,
+      message,
+      date,
+    };
+
+    try {
+      await axios.post(`http://localhost:5000/message`, contactMessage);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your Message Send SuccessFully!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      form.reset();
+    } catch (error) {
+      Swal.fire({
+        title: error?.message,
+        icon: "error",
+        draggable: true,
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col lg:flex-row gap-10 mb-20 md:mb-24 ">
       {/* information */}
@@ -27,13 +69,15 @@ const ContactMe = () => {
           <span className=""> hayderbd4290@gamil.com</span>
         </p>
         <div className="">
-        <p className="uppercase text-[#ff014f] mb-5 font-extralight">find With me</p>
-        <FindMe></FindMe>
+          <p className="uppercase text-[#ff014f] mb-5 font-normal">
+            find With me
+          </p>
+          <FindMe></FindMe>
         </div>
       </div>
       {/* form */}
       <div className="lg:w-7/12 bg-[#1f2125] rounded-md p-6 md:p-8 shadow-[0_4px_10px_rgba(33,31,32,0.8),_0_1px_16px_rgba(89,88,89,0.5)] hover:shadow-[0_4px_24px_rgba(255,1,79,0.8)] duration-300">
-        <form className="flex flex-col gap-12">
+        <form onSubmit={contactFormHandler} className="flex flex-col gap-12">
           {/* name & phone */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-12">
             <div className="form-control w-full">
@@ -43,6 +87,7 @@ const ContactMe = () => {
               <input
                 type="text"
                 name="name"
+                defaultValue={user?.displayName}
                 className=" border-b-2 px-4 hover:border-[#ff014f] rounded-md border-black/70 bg-[#212428] py-4 focus:py-5 focus:outline-[#ff014f] focus:border-none  outline-none"
                 required
               />
@@ -62,11 +107,14 @@ const ContactMe = () => {
           {/* email */}
           <div className="form-control w-full">
             <label className="mb-2">
-              <span className="text-gray-400 hover:border-[#ff014f] uppercase">Email</span>
+              <span className="text-gray-400 hover:border-[#ff014f] uppercase">
+                Email
+              </span>
             </label>
             <input
               type="email"
               name="email"
+              defaultValue={user?.email}
               className=" border-b-2 px-4 hover:border-[#ff014f] rounded-md border-black/70 bg-[#212428] py-4 focus:py-5 focus:outline-[#ff014f] focus:border-none outline-none"
               required
             />
@@ -88,15 +136,20 @@ const ContactMe = () => {
             <label className="mb-2">
               <span className="text-gray-400 uppercase ">Your Message</span>
             </label>
-            <textarea 
-            name="message"
-            required
-             id="" rows={6} className="border-b-2 px-4 hover:border-[#ff014f] resize-none rounded-md border-black/70 bg-[#212428] py-4 focus:py-5 focus:outline-[#ff014f] focus:border-none outline-none">
-
-            </textarea>
+            <textarea
+              name="message"
+              required
+              id=""
+              rows={6}
+              className="border-b-2 px-4 hover:border-[#ff014f] resize-none rounded-md border-black/70 bg-[#212428] py-4 focus:py-5 focus:outline-[#ff014f] focus:border-none outline-none"
+            ></textarea>
           </div>
           <div className="py-4 w-full text-center">
-            <input type="submit" value="SEND MESSAGE" className="border-b-2 cursor-pointer text-gray-400 px-4 w-full rounded-md border-black/70 bg-[#212428] py-4 focus:py-5 hover:border-[#ff014f] focus:border-none outline-none" />
+            <input
+              type="submit"
+              value="SEND MESSAGE"
+              className="border-b-2 cursor-pointer text-gray-400 px-4 w-full rounded-md border-black/70 bg-[#212428] py-4 focus:py-5 hover:border-[#ff014f] focus:border-none outline-none"
+            />
           </div>
         </form>
       </div>

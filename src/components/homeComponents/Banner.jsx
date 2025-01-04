@@ -29,7 +29,7 @@ const Banner = () => {
           </p>
         </div>
         <div className="mb-6">
-          <p className="uppercase mb-3 text-[#ff014f] font-extralight">
+          <p className="uppercase mb-3 text-[#ff014f] font-normal">
             best skill on
           </p>
           <div className="py-4 flex flex-wrap justify-start items-center gap-6">
@@ -60,7 +60,7 @@ const Banner = () => {
           </div>
         </div>
         <div className="">
-          <p className="uppercase text-[#ff014f] mb-3 font-extralight">
+          <p className="uppercase text-[#ff014f] mb-3 font-normal">
             find With me
           </p>
           <div className="flex justify-between items-center">

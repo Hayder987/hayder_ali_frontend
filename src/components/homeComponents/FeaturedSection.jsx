@@ -10,7 +10,7 @@ const FeaturedSection = () => {
   return (
     <div className="container mx-auto mb-20 md:mb-32">
       <div className="mb-14">
-        <p className="font-extralight text-center text-xl text-[#ff014f]">Features</p>
+        <p className="font-normal text-center text-xl text-[#ff014f]">Features</p>
         <h1 className="text-4xl text-center md:text-6xl font-bold">Why Choose Me</h1>
       </div>
       <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

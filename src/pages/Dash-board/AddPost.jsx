@@ -1,47 +1,65 @@
 import { useState } from "react";
 import { uploadImage } from "../../api/imageUpload";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddPost = () => {
+  const [img1, setImg1] = useState(null);
+  const [img2, setImg2] = useState(null);
+  const [img3, setImg3] = useState(null);
 
-    const [img1, setImg1] = useState(null);
-    const [img2, setImg2] = useState(null);
-    const [img3, setImg3] = useState(null);
+  const addProjectHandler = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const title = form.title.value;
+    const type = form.type.value;
+    const description = form.description.value;
+    const liveUrl = form.liveUrl.value;
+    const clientUrl = form.clientUrl.value;
+    const serverUrl = form.serverUrl.value;
+    const postDate = new Date();
 
-    const addProjectHandler = async e =>{
-        e.preventDefault()
-        const form = e.target;
-        const title = form.title.value;
-        const type = form.type.value;
-        const description = form.description.value;
-        const liveUrl = form.liveUrl.value;
-        const clientUrl = form.clientUrl.value;
-        const serverUrl = form.serverUrl.value;
-        const postDate = new Date()
-        
-        const photo1 = await uploadImage(img1)
-        const photo2 = await uploadImage(img2)
-        const photo3 = await uploadImage(img3)
+    const photo1 = await uploadImage(img1);
+    const photo2 = await uploadImage(img2);
+    const photo3 = await uploadImage(img3);
 
-        const project ={
-            title,
-            type,
-            description,
-            liveUrl,
-            clientUrl ,
-            serverUrl ,
-            allImage:{
-                photo1,
-                photo2,
-                photo3   
-            },
-            postDate
-        }
-        
+    const project = {
+      title,
+      type,
+      description,
+      liveUrl,
+      clientUrl,
+      serverUrl,
+      allImage: {
+        photo1,
+        photo2,
+        photo3,
+      },
+      postDate,
+    };
 
-      console.log(project)
-
-
+    try {
+      await axios.post(`${import.meta.env.VITE_Server_URL}/project`, project);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Project added SuccessFully!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      form.reset()
+      setImg1(null)
+      setImg2(null)
+      setImg3(null)
+    } catch (error) {
+      Swal.fire({
+        title: error?.message,
+        icon: "error",
+        draggable: true,
+      });
     }
+    
+  };
 
   return (
     <div className="p-10">
@@ -126,7 +144,7 @@ const AddPost = () => {
               placeholder="Enter a server URL"
               name="serverUrl"
               className="input text-black input-bordered"
-              required
+              
             />
           </div>
           <div className="flex justify-between gap-4">
@@ -152,7 +170,7 @@ const AddPost = () => {
             </div>
             {/* upload-2 */}
             <div className="">
-            <div className="flex flex-col overflow-hidden gap-2 py-5">
+              <div className="flex flex-col overflow-hidden gap-2 py-5">
                 <label className="font-semibold">
                   <input
                     type="file"
@@ -172,7 +190,7 @@ const AddPost = () => {
             </div>
             {/* upload-3 */}
             <div className="">
-            <div className="flex overflow-hidden flex-col gap-2 py-5">
+              <div className="flex overflow-hidden flex-col gap-2 py-5">
                 <label className="font-semibold">
                   <input
                     type="file"
@@ -196,7 +214,7 @@ const AddPost = () => {
               type="submit"
               className={`text-white  bg-[#ff014f] font-semibold p-3 rounded-lg w-full`}
             >
-             Add Post
+              Add Post
             </button>
           </div>
         </form>

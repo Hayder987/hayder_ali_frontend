@@ -10,6 +10,7 @@ import ProjectPage from "../pages/ProjectPage";
 import ContactPage from "../pages/ContactPage";
 import DashBoard from "../pages/DashBoard";
 import AddPost from "../pages/Dash-board/AddPost";
+import Details from "../pages/Details";
 
 const router = createBrowserRouter([
     {path: '/', 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
         {path: '/aboutMe', element: <AboutPage></AboutPage>},
         {path: '/skill', element: <SkillPage></SkillPage>},
         {path: '/project', element: <ProjectPage></ProjectPage>},
+        {path: '/details/:id', element: <Details></Details>},
         {path: '/contact', element: <ContactPage></ContactPage>},
         {path: 'dashBoard', element: <DashBoard></DashBoard>,
             children:[
