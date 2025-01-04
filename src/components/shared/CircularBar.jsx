@@ -44,7 +44,7 @@ const CircularBar = () => {
             backgroundColor: "#3e98c7",
           })}
         />
-        <p className="text-center mt-2 font-semibold">Project</p>
+        <p className="text-center mt-2 font-semibold">Team Work</p>
       </div>
       {/* 4 */}
       <div className="w-full md:w-[160px]">
@@ -58,7 +58,7 @@ const CircularBar = () => {
             backgroundColor: "#3e98c7",
           })}
         />
-        <p className="text-center mt-2 font-semibold">Project</p>
+        <p className="text-center mt-2 font-semibold">Communication</p>
       </div>
     </div>
   );
