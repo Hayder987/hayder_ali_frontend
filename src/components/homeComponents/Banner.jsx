@@ -1,4 +1,4 @@
-import bannerImg from "../../assets/images/orin.png";
+import bannerImg from "../../assets/images/bannerPhotomy.png";
 import js from "../../assets/logo/js.png";
 import reactLogo from "../../assets/logo/react.png";
 import fireBase from "../../assets/logo/firebase.png";
@@ -17,9 +17,9 @@ const Banner = () => {
         <div className="">
           <p className="font-medium mb-4">Welcome to my world</p>
           <h1 className="text-7xl text-gray-100 font-bold mb-6">
-            Hi, I’m <span className="text-[#ff014f]">Orin</span>
+            Hi, I’m <span className="text-[#ff014f]">Hayder</span>
           </h1>
-          <h3 className="text-4xl font-semibold mb-6">a Developer</h3>
+          <h3 className="text-4xl font-semibold mb-6">a MERN Stack Developer</h3>
           <p className="mb-12 font-medium text-xl text-gray-300">
             I am a passionate and dedicated MERN Stack Developer with a knack
             for creating dynamic, responsive, and user-friendly web
@@ -66,7 +66,9 @@ const Banner = () => {
           <div className="flex justify-between items-center">
             <FindMe></FindMe>
             <div className="">
-              <button className="bg-[#1f2125] hover:text-[#ff014f] font-semibold rounded-md p-4 px-8 shadow-[0_4px_10px_rgba(33,31,32,0.8),_0_1px_16px_rgba(89,88,89,0.8)] hover:shadow-[0_4px_24px_rgba(255,1,79,0.8)] duration-300">
+              <button
+              onClick={()=>window.open("https://docs.google.com/document/d/1N4bwCFQT80JMLPASGraRBaM7g6iWj_uyPbPfFAewqSc/edit?usp=sharing", "_blank", "noopener,noreferrer")}
+               className="bg-[#1f2125] hover:text-[#ff014f] font-semibold rounded-md p-4 px-8 shadow-[0_4px_10px_rgba(33,31,32,0.8),_0_1px_16px_rgba(89,88,89,0.8)] hover:shadow-[0_4px_24px_rgba(255,1,79,0.8)] duration-300">
                 Resume
               </button>
             </div>
@@ -74,11 +76,11 @@ const Banner = () => {
         </div>
       </div>
       {/* images */}
-      <div className="w-full lg:w-1/2 p-4 md:p-6 flex flex-col justify-end items-center">
+      <div className="w-full lg:w-1/2 p-4 md:p-6 lg:p-16 flex flex-col justify-end items-center">
         <img
           src={bannerImg}
           alt=""
-          className="object-cover  min-w-full h-full"
+          className=""
         />
       </div>
     </div>

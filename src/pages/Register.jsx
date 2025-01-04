@@ -1,17 +1,76 @@
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import loginBg from "../assets/images/registerBg-1.jpg";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  const registerHandler = e =>{
+
+  const {registerUser, updateUser, googleLogin } = useAuth()
+  const navigate = useNavigate()
+
+  const registerHandler = async e =>{
     e.preventDefault()
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    
+    if(password.length<6){
+      return  Swal.fire({
+        title: "Password must be 6 Digits",
+        icon: "error",
+        draggable: true
+      });
+    }
 
+    try{
+      await registerUser(email, password)
+    .then(async()=>{
+      await updateUser(name)
+      navigate('/')
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "User Registration Success!",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    })  
+    }
+    catch (error) {
+      Swal.fire({
+        title: error?.message,
+        icon: "error",
+        draggable: true
+      });
+    } 
+  }
+
+  const googleLoginHandler = async()=>{
+    try{
+      await googleLogin()
+    .then(async()=>{
+      navigate('/')
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "User Login Success!",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    })  
+    }
+    catch (error) {
+      Swal.fire({
+        title: error?.message,
+        icon: "error",
+        draggable: true
+      });
+    } 
     
   }
+
     return (
         <div>
       <div className="flex flex-col lg:max-w-[1000px] mx-auto py-10 md:py-16 lg:flex-row gap-10 mb-20 md:mb-24 ">
@@ -82,7 +141,7 @@ const Register = () => {
           </form>
           <p className="text-center text-gray-400 py-4">Or, Login With</p>
           <div className="mt-2">
-            <button className="border-b-2 flex items-center gap-4 justify-center cursor-pointer focus:outline-[#ff014f] font-semibold text-gray-400 px-4 w-full rounded-md border-black/70 bg-[#212428] py-4 focus:py-5 hover:border-[#ff014f] focus:border-none outline-none">
+            <button onClick={googleLoginHandler} className="border-b-2 flex items-center gap-4 justify-center cursor-pointer focus:outline-[#ff014f] font-semibold text-gray-400 px-4 w-full rounded-md border-black/70 bg-[#212428] py-4 focus:py-5 hover:border-[#ff014f] focus:border-none outline-none">
               <span className="text-2xl">
                 <FcGoogle />
               </span>

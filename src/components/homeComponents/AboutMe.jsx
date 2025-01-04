@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import aboutImg from "../../assets/images/orin.png";
+import aboutImg from "../../assets/images/bannerPhotomy.png";
 import AboutMeText from "./AboutMeText";
 const AboutMe = () => {
   return (

@@ -1,8 +1,69 @@
 import { FcGoogle } from "react-icons/fc";
 import loginBg from "../assets/images/loginbg1.jpeg";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const {loginUser, googleLogin} = useAuth()
+  const navigate = useNavigate()
+
+  const loginHandler = async e =>{
+
+    e.preventDefault()
+    const form = e.target;
+    const email = form.email.value
+    const password = form.password.value
+
+    try{
+          await loginUser(email, password)
+        .then(async()=>{
+          navigate('/')
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            // color: "#ff014f",
+            // background:"#aaaaaa ",
+            title: "User Registration Success!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        })  
+        }
+        catch (error) {
+          Swal.fire({
+            title: error?.message,
+            icon: "error",
+            draggable: true
+          });
+        } 
+  }
+
+    const googleLoginHandler = async()=>{
+      try{
+        await googleLogin()
+      .then(async()=>{
+        navigate('/')
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Login Success!",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      })  
+      }
+      catch (error) {
+        Swal.fire({
+          title: error?.message,
+          icon: "error",
+          draggable: true
+        });
+      } 
+      
+    }
+
+
   
   return (
     <div>
@@ -20,7 +81,9 @@ const Login = () => {
           <h1 className="text-center uppercase text-xl md:text-3xl font-semibold mb-6 text-gray-400">
             Login
           </h1>
-          <form className="flex flex-col gap-6 max-w-[600px] mx-auto">
+          <form
+          onSubmit={loginHandler}
+           className="flex flex-col gap-6 max-w-[600px] mx-auto">
 
             {/* email */}
             <div className="form-control w-full">
@@ -60,7 +123,9 @@ const Login = () => {
           </form>
           <p className="text-center text-gray-400 py-8">Or, Login With</p>
           <div className="mt-4">
-            <button className="border-b-2 flex items-center gap-4 justify-center cursor-pointer focus:outline-[#ff014f] font-semibold text-gray-400 px-4 w-full rounded-md border-black/70 bg-[#212428] py-4 focus:py-5 hover:border-[#ff014f] focus:border-none outline-none">
+            <button
+            onClick={googleLoginHandler}
+             className="border-b-2 flex items-center gap-4 justify-center cursor-pointer focus:outline-[#ff014f] font-semibold text-gray-400 px-4 w-full rounded-md border-black/70 bg-[#212428] py-4 focus:py-5 hover:border-[#ff014f] focus:border-none outline-none">
               <span className="text-2xl">
                 <FcGoogle />
               </span>

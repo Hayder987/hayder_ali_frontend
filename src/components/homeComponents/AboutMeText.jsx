@@ -4,7 +4,7 @@ const AboutMeText = () => {
       <div className="">
         <h1 className="text-xl md:text-2xl font-semibold mb-3">A story of good</h1>
         <p className="text-gray-300 text-xl font-light">
-          Hi! I’m Orin, a passionate and dedicated MERN Stack Developer with a
+          Hi! I’m Hayder, a passionate and dedicated MERN Stack Developer with a
           knack for building dynamic, responsive, and user-friendly web
           applications. I thrive on transforming innovative ideas into impactful
           digital solutions.
