@@ -63,12 +63,18 @@ const Details = () => {
             </div>
             {/*text  */}
             <div className="">
-                <div className="">
+                <div 
+                data-aos="zoom-in"
+                data-aos-duration="1200"
+                className="">
                     <h1 className="text-center text-3xl font-semibold my-6">{post?.title}</h1>
                     <p className="text-center my-4 text-[#ff014f] uppercase text-xl font-semibold">{post?.type}</p>
                     <p className="text-center font-medium text-gray-300 text-xl">{post?.description}</p>
                 </div>
-                <div className="mt-8 flex flex-col gap-3">
+                <div
+                data-aos="fade-up"
+                data-aos-duration="1200"
+                 className="mt-8 flex flex-col gap-3">
                     <p 
                     onClick={() =>
                         window.open(

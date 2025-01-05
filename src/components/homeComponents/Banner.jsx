@@ -8,6 +8,7 @@ import mongoLogo from "../../assets/logo/mongodb.png";
 import tailwind from "../../assets/logo/tailwind.png";
 import nextJs from "../../assets/logo/nextjs2.png";
 import FindMe from "../shared/FindMe";
+import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
   return (
@@ -19,7 +20,20 @@ const Banner = () => {
           <h1 className="text-7xl text-gray-100 font-bold mb-6">
             Hi, I’m <span className="text-[#ff014f]">Hayder</span>
           </h1>
-          <h3 className="text-4xl font-semibold mb-6">a MERN Stack Developer</h3>
+          <h3 className="text-4xl font-semibold  mb-6">
+            a 
+            <span className="ml-4 uppercase">
+            <Typewriter
+              words={["Frontend-Developer", "Web-Developer", "FullStack-Developer"]}
+              loop={0} 
+              cursor
+              cursorStyle="|"
+              typeSpeed={60} 
+              deleteSpeed={50} 
+              delaySpeed={1500} 
+            />
+            </span>
+          </h3>
           <p className="mb-12 font-medium text-xl text-gray-300">
             I am a passionate and dedicated MERN Stack Developer with a knack
             for creating dynamic, responsive, and user-friendly web
@@ -67,8 +81,15 @@ const Banner = () => {
             <FindMe></FindMe>
             <div className="">
               <button
-              onClick={()=>window.open("https://docs.google.com/document/d/1N4bwCFQT80JMLPASGraRBaM7g6iWj_uyPbPfFAewqSc/edit?usp=sharing", "_blank", "noopener,noreferrer")}
-               className="bg-[#1f2125] hover:text-[#ff014f] font-semibold rounded-md p-4 px-8 shadow-[0_4px_10px_rgba(33,31,32,0.8),_0_1px_16px_rgba(89,88,89,0.8)] hover:shadow-[0_4px_24px_rgba(255,1,79,0.8)] duration-300">
+                onClick={() =>
+                  window.open(
+                    "https://docs.google.com/document/d/1N4bwCFQT80JMLPASGraRBaM7g6iWj_uyPbPfFAewqSc/edit?usp=sharing",
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+                className="bg-[#1f2125] hover:text-[#ff014f] font-semibold rounded-md p-4 px-8 shadow-[0_4px_10px_rgba(33,31,32,0.8),_0_1px_16px_rgba(89,88,89,0.8)] hover:shadow-[0_4px_24px_rgba(255,1,79,0.8)] duration-300"
+              >
                 Resume
               </button>
             </div>
@@ -77,11 +98,7 @@ const Banner = () => {
       </div>
       {/* images */}
       <div className="w-full lg:w-1/2 p-4 md:p-6 lg:p-16 flex flex-col justify-end items-center">
-        <img
-          src={bannerImg}
-          alt=""
-          className=""
-        />
+        <img src={bannerImg} alt="" className="" />
       </div>
     </div>
   );

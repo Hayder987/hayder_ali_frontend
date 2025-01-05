@@ -18,7 +18,10 @@ const Project = () => {
   }, []);
 
   return (
-    <div className="">
+    <div
+    data-aos="fade-up"
+    data-aos-duration="1400"
+     className="">
       {loading ? (
         <LoaderSpinner></LoaderSpinner>
       ) : (

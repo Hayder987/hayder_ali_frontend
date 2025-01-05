@@ -1,10 +1,12 @@
-
 import logo from "../assets/logo/hdrlogo2.jpg";
 import FindMe from "./shared/FindMe";
 
 const Footer = () => {
   return (
-    <div className="">
+    <div
+    data-aos="fade-up" 
+     data-aos-duration="1200" 
+     className="">
       <div className="py-12 px-3 md:px-16 lg:px-20 border-y-2 border-[#191c1f]">
         <div className="py-16 grid grid-cols-2 lg:grid-cols-4 gap-10 ">
           {/* div1 */}
