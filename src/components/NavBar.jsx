@@ -75,14 +75,29 @@ const NavBar = () => {
               onClick={() => setMenu(!menu)}
               className=" flex flex-col gap-4 font-medium "
             >
-              <NavLink to="/">
+               <NavLink to="/">
                 <li>Home</li>
               </NavLink>
-              <li>Project</li>
               <NavLink to="/aboutMe">
                 <li>About</li>
               </NavLink>
-              <li>DashBoard</li>
+              <NavLink to="/skill">
+                <li>Skill</li>
+              </NavLink>
+              <NavLink to="/project">
+                <li>Project</li>
+              </NavLink>
+              <NavLink to="/contact">
+                <li>Contact Me</li>
+              </NavLink>
+              {user?.email === import.meta.env.VITE_Admin &&
+              user?.emailVerified === true ? (
+                <NavLink to="/dashBoard">
+                  <li>Dash Board</li>
+                </NavLink>
+              ) : (
+                ""
+              )}
             </ul>
           </nav>
         </div>
