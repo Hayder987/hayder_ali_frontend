@@ -11,6 +11,7 @@ import ContactPage from "../pages/ContactPage";
 import DashBoard from "../pages/DashBoard";
 import AddPost from "../pages/Dash-board/AddPost";
 import Details from "../pages/Details";
+import DisplayMessage from "../pages/Dash-board/DisplayMessage";
 
 const router = createBrowserRouter([
     {path: '/', 
@@ -27,7 +28,8 @@ const router = createBrowserRouter([
         {path: '/contact', element: <ContactPage></ContactPage>},
         {path: 'dashBoard', element: <DashBoard></DashBoard>,
             children:[
-                {path:'addPost', element:<AddPost></AddPost>}
+                {path:'addPost', element:<AddPost></AddPost>},
+                {path:'', element:<DisplayMessage></DisplayMessage>}
             ]
         }
        ]

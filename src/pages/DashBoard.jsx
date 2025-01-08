@@ -14,7 +14,7 @@ const DashBoard = () => {
            </div>
            <div className="text-gray-800 flex flex-col mb-16 gap-5">
             <Link to="addPost"><button className="bg-slate-400 w-full py-2 px-3 rounded-lg font-medium">Add Project</button></Link>
-            <button className="bg-slate-400 py-2 px-3 rounded-lg font-medium">View Message</button>
+            <Link to=""><button className="bg-slate-400 w-full py-2 px-3 rounded-lg font-medium">View Message</button></Link>
             <button className="bg-slate-400 py-2 px-3 rounded-lg font-medium">All Project</button>
            </div>
         </div>
