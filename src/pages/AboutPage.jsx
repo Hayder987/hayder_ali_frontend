@@ -3,6 +3,8 @@ import aboutImg from "../assets/images/bannerPhotomy.png";
 import Skill from "../components/skillComponents/Skill";
 import Passion from "../components/skillComponents/Passion";
 import Values from "../components/skillComponents/Values";
+import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { IoHome } from "react-icons/io5";
 
 const AboutPage = () => {
   const [skill, setSkill] = useState("skill");
@@ -30,16 +32,16 @@ const AboutPage = () => {
               optimizing performance, or ensuring accessibility, my focus is
               always on delivering exceptional results.
             </p>
-            <p className="flex items-center text-xl mb-3 gap-2">
-                <span className="font-bold">Eamil: </span>
+            <p className="flex items-center text-xl mb-3 gap-4">
+                <span className="font-bold"><FaEnvelope /> </span>
                 <span className="text-gray-400"> hayderbd4290@gmail.com </span>
             </p>
-            <p className="flex items-center text-xl mb-3 gap-2">
-                <span className="font-bold">Address: </span>
+            <p className="flex items-center text-xl mb-3 gap-4">
+                <span className="font-bold"><IoHome /> </span>
                 <span className="text-gray-400">Pabna, Dhaka, Bangladesh </span>
             </p>
-            <p className="flex items-center text-xl gap-2">
-                <span className="font-bold">Phone: </span>
+            <p className="flex items-center text-xl gap-4">
+                <span className="font-bold"><FaPhoneAlt /> </span>
                 <span className="text-gray-400">+8801771814597 </span>
             </p>
           </div>

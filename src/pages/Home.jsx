@@ -107,7 +107,7 @@ const Home = () => {
               cursor: "pointer",
               boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
             }}
-            className="font-bold flex justify-center items-center text-2xl"
+            className="font-bold flex justify-center z-10 items-center text-2xl"
           >
             <FaArrowUpLong />
           </button>

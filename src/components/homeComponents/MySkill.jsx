@@ -4,7 +4,7 @@ import Progress from "../shared/ProgressBar";
 
 const MySkill = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-10 md:gap-14">
+    <div className="flex overflow-hidden flex-col md:flex-row gap-10 md:gap-14">
       {/* js */}
       <div
       data-aos="fade-right"

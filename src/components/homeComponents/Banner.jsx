@@ -17,10 +17,10 @@ const Banner = () => {
       <div className="lg:w-1/2 py-4 md:py-12">
         <div className="">
           <p className="font-medium mb-4">Welcome to my world</p>
-          <h1 className="text-7xl text-gray-100 font-bold mb-6">
+          <h1 className="text-5xl md:text-7xl text-gray-100 font-bold mb-6">
             Hi, I’m <span className="text-[#ff014f]">Hayder</span>
           </h1>
-          <h3 className="text-4xl font-semibold  mb-6">
+          <h3 className="text-2xl md:text-4xl font-semibold  mb-6">
             a 
             <span className="ml-4 uppercase">
             <Typewriter
