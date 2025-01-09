@@ -2,7 +2,7 @@ import { CirclesWithBar } from "react-loader-spinner";
 
 const LoaderSpinner = () => {
   return (
-    <div className="flex justify-start p-8">
+    <div className="flex justify-center p-8">
       <CirclesWithBar
         height="100"
         width="100"

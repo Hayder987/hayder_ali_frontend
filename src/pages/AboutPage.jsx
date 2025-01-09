@@ -1,5 +1,5 @@
 import { useState } from "react";
-import aboutImg from "../assets/images/bannerPhotomy.png";
+import aboutImg from "../assets/images/AboutGithub.jpg";
 import Skill from "../components/skillComponents/Skill";
 import Passion from "../components/skillComponents/Passion";
 import Values from "../components/skillComponents/Values";
@@ -13,7 +13,7 @@ const AboutPage = () => {
     <div className="p-4 md:p-8 lg:p-12 mb-20">
       <div className="flex lg:max-w-[1200px] mx-auto flex-col  justify-center items-center gap-14 ">
         {/* img */}
-        <div className="flex flex-col lg:flex-row gap-6">
+        <div className="flex flex-col lg:flex-row gap-10">
           <div className=" lg:w-1/2 flex justify-center items-center">
             <img src={aboutImg} alt="" className="h-[450px]" />
           </div>
@@ -46,6 +46,7 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
+        <div className="border-b-2 border-black/40 w-full"></div>
         {/* text */}
         <div className="">
           <div className="">

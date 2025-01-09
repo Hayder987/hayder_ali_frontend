@@ -32,13 +32,13 @@ const ProjectCard = ({ post }) => {
             onClick={() =>
               window.open(`${post?.liveUrl}`, "_blank", "noopener,noreferrer")
             }
-            className="bg-[#1f2125] bg-opacity-80 hover:text-[#ff014f] font-semibold rounded-md p-4 px-8 shadow-[0_4px_10px_rgba(33,31,32,0.8),_0_1px_16px_rgba(89,88,89,0.8)] hover:shadow-[0_4px_24px_rgba(255,1,79,0.8)] duration-300"
+            className="bg-[#1f2125] bg-opacity-80 hover:text-[#ff014f] font-semibold rounded-md py-2 lg:py-4 px-4 lg:px-8 shadow-[0_4px_10px_rgba(33,31,32,0.8),_0_1px_16px_rgba(89,88,89,0.8)] hover:shadow-[0_4px_24px_rgba(255,1,79,0.8)] duration-300"
           >
             Live Url
           </button>
 
           <Link to={`/details/${post?._id}`}>
-            <button className="bg-[#1f2125] bg-opacity-80 hover:text-[#ff014f] font-semibold rounded-md p-4 px-8 shadow-[0_4px_10px_rgba(33,31,32,0.8),_0_1px_16px_rgba(89,88,89,0.8)] hover:shadow-[0_4px_24px_rgba(255,1,79,0.8)] duration-300">
+            <button className="bg-[#1f2125] bg-opacity-80 hover:text-[#ff014f] font-semibold rounded-md py-2 lg:py-4 px-4 lg:px-8 shadow-[0_4px_10px_rgba(33,31,32,0.8),_0_1px_16px_rgba(89,88,89,0.8)] hover:shadow-[0_4px_24px_rgba(255,1,79,0.8)] duration-300">
               Details
             </button>
           </Link>
