@@ -83,7 +83,7 @@ const Banner = () => {
               <button
                 onClick={() =>
                   window.open(
-                    "https://docs.google.com/document/d/1N4bwCFQT80JMLPASGraRBaM7g6iWj_uyPbPfFAewqSc/edit?usp=sharing",
+                    "https://drive.google.com/file/d/1dpNe1myP6YyfM5mSaGlZOQgWyfGKP9Hf/view?usp=sharing",
                     "_blank",
                     "noopener,noreferrer"
                   )
